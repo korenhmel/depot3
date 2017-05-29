@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<!-- <p>
   <strong>Title:</strong>
   <%= @product.title %>
 </p>
@@ -12,13 +12,35 @@
 
 <p>
   <strong>Image url:</strong>
-  <%= @product.image_url %>
+  <%= image_tag(@product.image_url) %>
 </p>
 
 <p>
   <strong>Price:</strong>
   <%= @product.price %>
-</p>
+</p> -->
+
+<table >
+	<tr>
+		<!-- <td><strong>Title: &nbsp</strong> </td> -->
+		<th colspan="2"> <h1> <%= @product.title %></h1></th>
+		
+	</tr>
+	<tr>
+	<td width="15%"><%= image_tag(@product.image_url, class: 'show_list_image') %></td>
+		<td width="85%" class= "list_description">
+           <dl>
+             <!-- <dt><%= @product.title %></dt> -->
+             <dd><%= @product.description %></dd>
+            </dl>
+          </td>
+		
+	</tr>
+	<tr>
+		<!-- <td><%= image_tag(@product.image_url) %></td> -->
+	</tr>
+</table>
+<p><%= @product.price %>&nbsp; гр.</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
