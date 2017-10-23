@@ -2,13 +2,31 @@
 <html>
   <head>
     <title>Depot3</title>
+   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class='<%= controller.controller_name %>' >
-    <%= yield %>
+  <body class="<%= controller.controller_name %>">
+    <div id="banner">
+      <%= image_tag("logo3.png") %>
+      <%= @page_title ||"Pragmatic Bookshelf" %>
+    </div>
+    <div id="columns">
+      <div id="side">
+        <ul>
+          <li><%= link_to 'Home', store_index_path %></li>
+          <li><a href="http://www">Questions</a></li>
+          <li><a href="http://www">News</a></li>
+          <li><a href="http://www">Contact</a></li>
+          </ul>
+          <% t = Time.new %>
+          <p>Местное время <%= t.strftime("%H:%M") %></p>
+          <p>Дата <%= t.strftime("%Y/%m/%d") %></p>
+      </div>
+      <div id="main">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

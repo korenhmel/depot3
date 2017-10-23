@@ -3,6 +3,10 @@ class ProductsController < ApplicationController
 
   # GET /products
   # GET /products.json
+  def number_to_euro(amount)
+    number_to_currency(amount,:unit=>'€').gsub(' ',nbsp)
+  end
+
   def index
     @products = Product.all
   end
