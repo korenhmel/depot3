@@ -29,10 +29,10 @@ class LineItemsController < ApplicationController
   def create 
     #'changed notice'
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product: product)
-    # @line_item_count = @cart.line_items.count
-    #'previous notice'
-    # @line_item = LineItem.new(line_item_params 
+    # "old change"
+    # @line_item = @cart.line_items.build(product: product)
+    # "new change"
+    @line_item = @cart.add_product(product.id)
 
     respond_to do |format|
       if @line_item.save

@@ -11,6 +11,9 @@ class CartsController < ApplicationController
   # GET /carts/1.json
   def show
     @cart = Cart.find(params[:id])
+     total_price = []
+     @cart.line_items.each { |item| total_price << item.product.price * item.quantity }
+     @total_price = total_price.inject(:+)
   end
 
   # GET /carts/new

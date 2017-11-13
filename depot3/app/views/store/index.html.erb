@@ -9,7 +9,7 @@
  
     <p> session cart : <%= session[:cart_id] %> </p>
 
-  <%= @products.each do |product| %>
+  <% @products.each do |product| %>
       <div class="entry ">
         <%= image_tag(product.image_url) %>
         <h3><%= product.title %></h3>
@@ -20,5 +20,6 @@
         </div>
       </div>
     <% end %>
+
   
 
